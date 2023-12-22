@@ -1,8 +1,11 @@
 package com.berly;
 
+import java.lang.System.Logger;
+
 public class Initial {
 
 	public static void main(String[] args) {
-		System.out.print(true);
+		Logger logger = System.getLogger(Initial.class.getName());	
+		logger.log(System.Logger.Level.INFO, "Amongas");
 	}
 }
