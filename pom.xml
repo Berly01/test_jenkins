@@ -3,7 +3,11 @@
   <groupId>test</groupId>
   <artifactId>test</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  <packaging>war</packaging>
+  <packaging>jar</packaging>
+  
+  <properties>
+	  <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
   
   <dependencies>
 	<dependency>
@@ -11,8 +15,25 @@
 	    <artifactId>mysql-connector-java</artifactId>
 	    <version>8.0.33</version>
 	</dependency>
+	<dependency>
+	    <groupId>org.apache.maven.plugins</groupId>
+	    <artifactId>maven-jar-plugin</artifactId>
+	    <version>3.3.0</version>
+	</dependency>
+	<dependency>
+	    <groupId>org.junit.jupiter</groupId>
+	    <artifactId>junit-jupiter-api</artifactId>
+	    <version>5.10.1</version>
+	    <scope>test</scope>
+	</dependency>
+	<dependency>
+	    <groupId>org.junit.jupiter</groupId>
+	    <artifactId>junit-jupiter-engine</artifactId>
+	    <version>5.10.1</version>
+	    <scope>test</scope>
+	</dependency>
   </dependencies>
-  
+
   <build>
     <plugins>
       <plugin>
@@ -26,6 +47,21 @@
         <artifactId>maven-war-plugin</artifactId>
         <version>3.2.3</version>
       </plugin>
+      <plugin>
+		  <groupId>org.apache.maven.plugins</groupId>
+		  <artifactId>maven-shade-plugin</artifactId>
+		  <version>3.2.4</version>
+		  <executions>
+			  <execution>
+				  <phase>package</phase>
+				  <goals>
+					  <goal>shade</goal>
+				  </goals>
+			  </execution>
+		  </executions>
+	  </plugin>
     </plugins>
+    
+    <finalName>test_jenkins</finalName>
   </build>
 </project>

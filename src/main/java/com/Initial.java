@@ -1,21 +1,11 @@
 package com;
 
-import java.io.FileNotFoundException;
-import java.sql.Connection;
-import java.sql.SQLException;
-import com.berly.database.DataBase;
-import com.berly.database.MySQL;
+import java.lang.System.Logger;
 
 public class Initial {
 
 	public static void main(String[] args) {
-
-		MySQL mySQL = new MySQL();
-		try {
-			Connection connection = mySQL.getConnection();
-			System.out.print("Se obtuvo la connecion\n" + DataBase.getUrlDatabase());
-		} catch (ClassNotFoundException | SQLException | FileNotFoundException e) {
-			e.printStackTrace();
-		}
+		Logger logger = System.getLogger(Initial.class.getName());	
+		logger.log(System.Logger.Level.INFO, "Amongas");
 	}
 }
